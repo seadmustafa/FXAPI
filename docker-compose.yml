@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  forexapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: forexapp
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - FIXER_API_KEY=${FIXER_API_KEY}
+    volumes:
+      - ./config:/app/config
+    restart: unless-stopped
+
+  h2:
+    image: oscarfonts/h2
+    container_name: h2-database
+    ports:
+      - "9092:9092"
+      - "8082:8082"
+    environment:
+      H2_OPTIONS: "-ifNotExists -tcp -tcpAllowOthers -web -webAllowOthers"
+
+networks:
+  default:
+    name: forexapp-network

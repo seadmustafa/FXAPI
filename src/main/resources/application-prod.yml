@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/forexdb-prod
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 1k2j3n198hasd2deqv
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: false
+
+external-api:
+  url: https://data.fixer.io/api/latest
+  api-key: ${FIXER_API_KEY}  # Read from environment variable
+
+logging:
+  level:
+    org:
+      springdoc: INFO
+      springframework.web: WARN
