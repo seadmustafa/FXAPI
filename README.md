@@ -34,7 +34,7 @@ A robust Spring Boot-based API for converting currencies, fetching exchange rate
 
 ```bash
 git clone https://github.com/seadmustafa/FXAPI.git
-cd forex-api
+cd FXAPI
 ```
 
 ### 2. Configure API Key ( Optional )
