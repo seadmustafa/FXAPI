@@ -34,7 +34,6 @@ public class CurrencyConversionServiceImpl implements CurrencyConversionService 
     private final ConversionHistoryRepository historyRepository;
 
     @Override
-    @Transactional
     public CurrencyConversionResponse convertCurrency(CurrencyConversionRequest request) {
         String source = request.getSourceCurrency().toUpperCase();
         String target = request.getTargetCurrency().toUpperCase();
